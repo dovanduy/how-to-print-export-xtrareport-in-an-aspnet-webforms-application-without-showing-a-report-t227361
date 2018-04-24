@@ -8,7 +8,7 @@
 ' </auto-generated>
 '------------------------------------------------------------------------------
 
-'#pragma warning disable 1591
+#Disable Warning 1591
 
 Namespace T227361
 
@@ -44,7 +44,7 @@ Namespace T227361
                 AddHandler Me.Relations.CollectionChanged, schemaChangedHandler1
                 Return
             End If
-            Dim strSchema As String = (DirectCast(info.GetValue("XmlSchema", GetType(String)), String))
+            Dim strSchema As String = (CStr(info.GetValue("XmlSchema", GetType(String))))
             If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
                 Dim ds As New Global.System.Data.DataSet()
                 ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
@@ -108,7 +108,7 @@ Namespace T227361
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overrides Function Clone() As Global.System.Data.DataSet
-            Dim cln As NWindDataSet = (DirectCast(MyBase.Clone(), NWindDataSet))
+            Dim cln As NWindDataSet = (CType(MyBase.Clone(), NWindDataSet))
             cln.InitVars()
             cln.SchemaSerializationMode = Me.SchemaSerializationMode
             Return cln
@@ -211,7 +211,7 @@ Namespace T227361
                     dsSchema.Write(s1)
                     Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                     Do While schemas.MoveNext()
-                        schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                        schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                         s2.SetLength(0)
                         schema.Write(s2)
                         If (s1.Length = s2.Length) Then
@@ -387,7 +387,7 @@ Namespace T227361
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Default Public ReadOnly Property Item(ByVal index As Integer) As ProductsRow
                 Get
-                    Return (DirectCast(Me.Rows(index), ProductsRow))
+                    Return (CType(Me.Rows(index), ProductsRow))
                 End Get
             End Property
 
@@ -410,7 +410,7 @@ Namespace T227361
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function AddProductsRow(ByVal ProductName As String, ByVal SupplierID As Integer, ByVal CategoryID As Integer, ByVal QuantityPerUnit As String, ByVal UnitPrice As Decimal, ByVal UnitsInStock As Short, ByVal UnitsOnOrder As Short, ByVal ReorderLevel As Short, ByVal Discontinued As Boolean, ByVal EAN13 As String) As ProductsRow
-                Dim rowProductsRow As ProductsRow = (DirectCast(Me.NewRow(), ProductsRow))
+                Dim rowProductsRow As ProductsRow = (CType(Me.NewRow(), ProductsRow))
                 Dim columnValuesArray() As Object = { Nothing, ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued, EAN13}
                 rowProductsRow.ItemArray = columnValuesArray
                 Me.Rows.Add(rowProductsRow)
@@ -419,12 +419,12 @@ Namespace T227361
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function FindByProductID(ByVal ProductID As Integer) As ProductsRow
-                Return (DirectCast(Me.Rows.Find(New Object() { ProductID}), ProductsRow))
+                Return (CType(Me.Rows.Find(New Object() { ProductID}), ProductsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Overrides Function Clone() As Global.System.Data.DataTable
-                Dim cln As ProductsDataTable = (DirectCast(MyBase.Clone(), ProductsDataTable))
+                Dim cln As ProductsDataTable = (CType(MyBase.Clone(), ProductsDataTable))
                 cln.InitVars()
                 Return cln
             End Function
@@ -486,7 +486,7 @@ Namespace T227361
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Function NewProductsRow() As ProductsRow
-                Return (DirectCast(Me.NewRow(), ProductsRow))
+                Return (CType(Me.NewRow(), ProductsRow))
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -502,25 +502,25 @@ Namespace T227361
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanged(e)
-                RaiseEvent ProductsRowChanged(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowChanged(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowChanging(e)
-                RaiseEvent ProductsRowChanging(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowChanging(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleted(e)
-                RaiseEvent ProductsRowDeleted(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowDeleted(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
                 MyBase.OnRowDeleting(e)
-                RaiseEvent ProductsRowDeleting(Me, New ProductsRowChangeEvent((DirectCast(e.Row, ProductsRow)), e.Action))
+                RaiseEvent ProductsRowDeleting(Me, New ProductsRowChangeEvent((CType(e.Row, ProductsRow)), e.Action))
             End Sub
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
@@ -562,7 +562,7 @@ Namespace T227361
                         dsSchema.Write(s1)
                         Dim schemas As System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator()
                         Do While schemas.MoveNext()
-                            schema = (DirectCast(schemas.Current, Global.System.Xml.Schema.XmlSchema))
+                            schema = (CType(schemas.Current, Global.System.Xml.Schema.XmlSchema))
                             s2.SetLength(0)
                             schema.Write(s2)
                             If (s1.Length = s2.Length) Then
@@ -607,7 +607,7 @@ Namespace T227361
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
             Public Property ProductID() As Integer
                 Get
-                    Return (DirectCast(Me(Me.tableProducts.ProductIDColumn), Integer))
+                    Return (CInt((Me(Me.tableProducts.ProductIDColumn))))
                 End Get
                 Set(ByVal value As Integer)
                     Me(Me.tableProducts.ProductIDColumn) = value
@@ -618,7 +618,7 @@ Namespace T227361
             Public Property ProductName() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.ProductNameColumn), String))
+                        Return (CStr(Me(Me.tableProducts.ProductNameColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ProductName' in table 'Products' is DBNull.", e)
                     End Try
@@ -632,7 +632,7 @@ Namespace T227361
             Public Property SupplierID() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.SupplierIDColumn), Integer))
+                        Return (CInt((Me(Me.tableProducts.SupplierIDColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'SupplierID' in table 'Products' is DBNull.", e)
                     End Try
@@ -646,7 +646,7 @@ Namespace T227361
             Public Property CategoryID() As Integer
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.CategoryIDColumn), Integer))
+                        Return (CInt((Me(Me.tableProducts.CategoryIDColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'CategoryID' in table 'Products' is DBNull.", e)
                     End Try
@@ -660,7 +660,7 @@ Namespace T227361
             Public Property QuantityPerUnit() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.QuantityPerUnitColumn), String))
+                        Return (CStr(Me(Me.tableProducts.QuantityPerUnitColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'QuantityPerUnit' in table 'Products' is DBNull.", e)
                     End Try
@@ -674,7 +674,7 @@ Namespace T227361
             Public Property UnitPrice() As Decimal
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.UnitPriceColumn), Decimal))
+                        Return (CDec(Me(Me.tableProducts.UnitPriceColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'UnitPrice' in table 'Products' is DBNull.", e)
                     End Try
@@ -688,7 +688,7 @@ Namespace T227361
             Public Property UnitsInStock() As Short
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.UnitsInStockColumn), Short))
+                        Return (CShort(Math.Truncate(Me(Me.tableProducts.UnitsInStockColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'UnitsInStock' in table 'Products' is DBNull.", e)
                     End Try
@@ -702,7 +702,7 @@ Namespace T227361
             Public Property UnitsOnOrder() As Short
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.UnitsOnOrderColumn), Short))
+                        Return (CShort(Math.Truncate(Me(Me.tableProducts.UnitsOnOrderColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'UnitsOnOrder' in table 'Products' is DBNull.", e)
                     End Try
@@ -716,7 +716,7 @@ Namespace T227361
             Public Property ReorderLevel() As Short
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.ReorderLevelColumn), Short))
+                        Return (CShort(Math.Truncate(Me(Me.tableProducts.ReorderLevelColumn))))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'ReorderLevel' in table 'Products' is DBNull.", e)
                     End Try
@@ -730,7 +730,7 @@ Namespace T227361
             Public Property Discontinued() As Boolean
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.DiscontinuedColumn), Boolean))
+                        Return (CBool(Me(Me.tableProducts.DiscontinuedColumn)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'Discontinued' in table 'Products' is DBNull.", e)
                     End Try
@@ -744,7 +744,7 @@ Namespace T227361
             Public Property EAN13() As String
                 Get
                     Try
-                        Return (DirectCast(Me(Me.tableProducts.EAN13Column), String))
+                        Return (CStr(Me(Me.tableProducts.EAN13Column)))
                     Catch e As Global.System.InvalidCastException
                         Throw New Global.System.Data.StrongTypingException("The value for column 'EAN13' in table 'Products' is DBNull.", e)
                     End Try
@@ -1435,8 +1435,8 @@ Namespace T227361.NWindDataSetTableAdapters
                 '
                 If (Me._productsTableAdapter IsNot Nothing) Then
                     revertConnections.Add(Me._productsTableAdapter, Me._productsTableAdapter.Connection)
-                    Me._productsTableAdapter.Connection = (DirectCast(workConnection, Global.System.Data.OleDb.OleDbConnection))
-                    Me._productsTableAdapter.Transaction = (DirectCast(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
+                    Me._productsTableAdapter.Connection = (CType(workConnection, Global.System.Data.OleDb.OleDbConnection))
+                    Me._productsTableAdapter.Transaction = (CType(workTransaction, Global.System.Data.OleDb.OleDbTransaction))
                     If Me._productsTableAdapter.Adapter.AcceptChangesDuringUpdate Then
                         Me._productsTableAdapter.Adapter.AcceptChangesDuringUpdate = False
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._productsTableAdapter.Adapter)
@@ -1503,7 +1503,7 @@ Namespace T227361.NWindDataSetTableAdapters
                     workConnection.Close()
                 End If
                 If (Me._productsTableAdapter IsNot Nothing) Then
-                    Me._productsTableAdapter.Connection = (DirectCast(revertConnections(Me._productsTableAdapter), Global.System.Data.OleDb.OleDbConnection))
+                    Me._productsTableAdapter.Connection = (CType(revertConnections(Me._productsTableAdapter), Global.System.Data.OleDb.OleDbConnection))
                     Me._productsTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
@@ -1605,7 +1605,7 @@ Namespace T227361.NWindDataSetTableAdapters
             End Function
 
             <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-            Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements IComparer(Of Global.System.Data.DataRow).Compare
+            Public Function Compare(ByVal row1 As Global.System.Data.DataRow, ByVal row2 As Global.System.Data.DataRow) As Integer Implements System.Collections.Generic.IComparer(Of Global.System.Data.DataRow).Compare
                 If Object.ReferenceEquals(row1, row2) Then
                     Return 0
                 End If
@@ -1637,4 +1637,4 @@ Namespace T227361.NWindDataSetTableAdapters
     End Class
 End Namespace
 
-'#pragma warning restore 1591
+#Enable Warning 1591

@@ -45,10 +45,10 @@
             Me.tbProductData = New DevExpress.XtraReports.UI.XRTable()
             Me.nWindDataSet1 = New T227361.NWindDataSet()
             Me.productsTableAdapter = New T227361.NWindDataSetTableAdapters.ProductsTableAdapter()
-            DirectCast(Me.tbProductHeader, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.tbProductData, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.nWindDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.tbProductHeader, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.tbProductData, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me.nWindDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
             ' 
             ' tbProductHeader
             ' 
@@ -223,10 +223,10 @@
             Me.DataMember = "Products"
             Me.DataSource = Me.nWindDataSet1
             Me.Version = "14.1"
-            DirectCast(Me.tbProductHeader, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.tbProductData, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.nWindDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.tbProductHeader, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.tbProductData, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me.nWindDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+            CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
         End Sub
 
